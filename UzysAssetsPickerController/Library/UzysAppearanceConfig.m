@@ -75,7 +75,7 @@
 - (UIColor *)finishSelectionButtonColor
 {
     if (!_finishSelectionButtonColor) {
-        return [UIColor redColor];
+        return [UIColor colorWithRed: 0x68/255.0f green:0xa5/255.0f blue:0xd8/255.0f alpha:1.0];
     }
     return _finishSelectionButtonColor;
 }

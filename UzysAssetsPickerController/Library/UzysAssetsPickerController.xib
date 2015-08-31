@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -46,9 +46,7 @@
                                 <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="pid-dK-XVP"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="16"/>
-                            <state key="normal" title=".">
-                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </state>
+                            <state key="normal" title="."/>
                             <connections>
                                 <action selector="btnAction:" destination="-1" eventType="touchUpInside" id="9iB-BX-fxc"/>
                             </connections>
@@ -61,7 +59,7 @@
                             </constraints>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.40784313725490196" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="rd5-Z7-vdI" firstAttribute="trailing" secondItem="uvL-Np-IWv" secondAttribute="leading" constant="-3" id="5tI-lL-2ql"/>
                         <constraint firstItem="GMr-RU-k94" firstAttribute="top" secondItem="eF0-Xh-u5U" secondAttribute="top" constant="28" id="Owl-NB-pwD"/>
@@ -78,7 +76,7 @@
                     <subviews>
                         <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abt-dZ-axW">
                             <rect key="frame" x="249" y="9" width="55" height="30"/>
-                            <color key="backgroundColor" red="0.88235294117647056" green="0.24313725490196078" blue="0.24313725490196078" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.40784313725490196" green="0.6470588235294118" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="QKW-c3-OwO"/>
                             </constraints>

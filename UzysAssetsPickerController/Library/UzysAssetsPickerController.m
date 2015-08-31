@@ -102,6 +102,13 @@
     [self setupGroupPickerview];
     [self initNoAssetView];
     
+    
+    self.imageViewTitleArrow.image = [self.imageViewTitleArrow.image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.imageViewTitleArrow setTintColor:[UIColor whiteColor]];
+    
+    UIImage *image = [[self.btnClose imageForState:UIControlStateNormal] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.btnClose setImage:image forState:UIControlStateNormal];
+    self.btnClose.tintColor = [UIColor whiteColor];
 }
 
 - (void)initVariable

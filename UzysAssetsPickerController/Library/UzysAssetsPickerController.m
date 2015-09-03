@@ -413,7 +413,7 @@
             
         }
     };
-    [self.assetsGroup enumerateAssetsWithOptions:NSEnumerationReverse usingBlock:resultsBlock];
+    [self.assetsGroup enumerateAssetsWithOptions:NSEnumerationConcurrent usingBlock:resultsBlock];
 }
 - (void)reloadData
 {

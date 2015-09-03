@@ -111,6 +111,15 @@
     self.btnClose.tintColor = [UIColor whiteColor];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
+        [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    }
+    [self.orderedSelectedItem removeAllObjects];
+    [self setAssetsCountWithSelectedIndexPaths:self.collectionView.indexPathsForSelectedItems];
+}
+
 - (void)initVariable
 {
     //    self.assetsFilter = [ALAssetsFilter allPhotos];

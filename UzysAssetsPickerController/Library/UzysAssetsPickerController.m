@@ -418,6 +418,7 @@
 - (void)reloadData
 {
     [self.collectionView reloadData];
+    [self.collectionView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
     [self.btnDone setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.collectionView.indexPathsForSelectedItems
                             .count] forState:UIControlStateNormal];
     [self showNoAssetsIfNeeded];
@@ -982,7 +983,7 @@
                     [selectedItems addObject:[self.assets objectAtIndex:idxPath.row]];
                 }
                 
-                [self.assets insertObject:asset atIndex:0];
+                [self.assets addObject:asset];
                 [self reloadData];
                 
                 for (ALAsset *item in selectedItems)

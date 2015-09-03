@@ -418,7 +418,12 @@
 - (void)reloadData
 {
     [self.collectionView reloadData];
-    [self.collectionView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
+//    [self.collectionView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
+    NSInteger section = [self numberOfSectionsInCollectionView:self.collectionView] - 1;
+    NSInteger item = [self collectionView:self.collectionView numberOfItemsInSection:section] - 1;
+    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:item inSection:section];
+    [self.collectionView scrollToItemAtIndexPath:lastIndexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+     
     [self.btnDone setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.collectionView.indexPathsForSelectedItems
                             .count] forState:UIControlStateNormal];
     [self showNoAssetsIfNeeded];

@@ -111,8 +111,8 @@
     self.btnClose.tintColor = [UIColor whiteColor];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
         [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
     }

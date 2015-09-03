@@ -418,11 +418,11 @@
 - (void)reloadData
 {
     [self.collectionView reloadData];
-//    [self.collectionView setContentOffset:CGPointMake(0, CGFLOAT_MAX)];
+
     NSInteger section = [self numberOfSectionsInCollectionView:self.collectionView] - 1;
     NSInteger item = [self collectionView:self.collectionView numberOfItemsInSection:section] - 1;
     NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:item inSection:section];
-    [self.collectionView scrollToItemAtIndexPath:lastIndexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+    [self.collectionView scrollToItemAtIndexPath:lastIndexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:NO];
      
     [self.btnDone setTitle:[NSString stringWithFormat:@"%lu",(unsigned long)self.collectionView.indexPathsForSelectedItems
                             .count] forState:UIControlStateNormal];
@@ -1003,12 +1003,13 @@
                         }
                     }
                 }
-                [self.collectionView setContentOffset:CGPointMake(0, 0) animated:NO];
+//                [self.collectionView setContentOffset:CGPointMake(0, 0) animated:NO];
                 
                 if(self.maximumNumberOfSelection > self.collectionView.indexPathsForSelectedItems.count)
                 {
-                    NSIndexPath *newPath = [NSIndexPath indexPathForRow:0 inSection:0];
-                    [self.collectionView selectItemAtIndexPath:newPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+                    NSUInteger idx = [self.assets indexOfObject:asset];
+                    NSIndexPath *newPath = [NSIndexPath indexPathForRow:idx inSection:0];
+                    [self.collectionView selectItemAtIndexPath:newPath animated:NO scrollPosition:UICollectionViewScrollPositionBottom];
                     [self.orderedSelectedItem addObject:asset];
                 }
                 [self setAssetsCountWithSelectedIndexPaths:self.collectionView.indexPathsForSelectedItems];

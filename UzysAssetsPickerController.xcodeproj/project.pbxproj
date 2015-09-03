@@ -19,11 +19,6 @@
 		95F4437218AB4AEF0088FC13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95F4437018AB4AEF0088FC13 /* Main.storyboard */; };
 		95F4437518AB4AEF0088FC13 /* uzysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F4437418AB4AEF0088FC13 /* uzysViewController.m */; };
 		95F4437718AB4AEF0088FC13 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95F4437618AB4AEF0088FC13 /* Images.xcassets */; };
-		95F4437E18AB4AEF0088FC13 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F4437D18AB4AEF0088FC13 /* XCTest.framework */; };
-		95F4437F18AB4AEF0088FC13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F4435E18AB4AEF0088FC13 /* Foundation.framework */; };
-		95F4438018AB4AEF0088FC13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F4436218AB4AEF0088FC13 /* UIKit.framework */; };
-		95F4438818AB4AEF0088FC13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95F4438618AB4AEF0088FC13 /* InfoPlist.strings */; };
-		95F4438A18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F4438918AB4AEF0088FC13 /* UzysAssetsPickerControllerTests.m */; };
 		95F4439718AB4BBA0088FC13 /* UzysAssetsPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F4439518AB4BBA0088FC13 /* UzysAssetsPickerController.m */; };
 		95F4439818AB4BBA0088FC13 /* UzysAssetsPickerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95F4439618AB4BBA0088FC13 /* UzysAssetsPickerController.xib */; };
 		95F4439A18AB575B0088FC13 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F4439918AB575B0088FC13 /* AssetsLibrary.framework */; };
@@ -35,16 +30,6 @@
 		CCE0A1C519AC197F00A5BE3A /* UIImage+UzysExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A1C419AC197F00A5BE3A /* UIImage+UzysExtension.m */; };
 		CCE0A1C819AC1F0200A5BE3A /* UzysAppearanceConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE0A1C719AC1F0200A5BE3A /* UzysAppearanceConfig.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		95F4438118AB4AEF0088FC13 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 95F4435318AB4AEF0088FC13 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 95F4435A18AB4AEF0088FC13;
-			remoteInfo = UzysAssetsPickerController;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		95080AE319CC508900E69F29 /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
@@ -64,7 +49,6 @@
 		95F4437318AB4AEF0088FC13 /* uzysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = uzysViewController.h; sourceTree = "<group>"; };
 		95F4437418AB4AEF0088FC13 /* uzysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = uzysViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		95F4437618AB4AEF0088FC13 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		95F4437C18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UzysAssetsPickerControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		95F4437D18AB4AEF0088FC13 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		95F4438518AB4AEF0088FC13 /* UzysAssetsPickerControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UzysAssetsPickerControllerTests-Info.plist"; sourceTree = "<group>"; };
 		95F4438718AB4AEF0088FC13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -103,16 +87,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95F4437918AB4AEF0088FC13 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95F4437E18AB4AEF0088FC13 /* XCTest.framework in Frameworks */,
-				95F4438018AB4AEF0088FC13 /* UIKit.framework in Frameworks */,
-				95F4437F18AB4AEF0088FC13 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -131,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				95F4435B18AB4AEF0088FC13 /* UzysAssetsPickerController.app */,
-				95F4437C18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,24 +211,6 @@
 			productReference = 95F4435B18AB4AEF0088FC13 /* UzysAssetsPickerController.app */;
 			productType = "com.apple.product-type.application";
 		};
-		95F4437B18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 95F4439018AB4AEF0088FC13 /* Build configuration list for PBXNativeTarget "UzysAssetsPickerControllerTests" */;
-			buildPhases = (
-				95F4437818AB4AEF0088FC13 /* Sources */,
-				95F4437918AB4AEF0088FC13 /* Frameworks */,
-				95F4437A18AB4AEF0088FC13 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				95F4438218AB4AEF0088FC13 /* PBXTargetDependency */,
-			);
-			name = UzysAssetsPickerControllerTests;
-			productName = UzysAssetsPickerControllerTests;
-			productReference = 95F4437C18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -266,8 +221,8 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Uzys;
 				TargetAttributes = {
-					95F4437B18AB4AEF0088FC13 = {
-						TestTargetID = 95F4435A18AB4AEF0088FC13;
+					95F4435A18AB4AEF0088FC13 = {
+						DevelopmentTeam = KSRGZGY6RG;
 					};
 				};
 			};
@@ -285,7 +240,6 @@
 			projectRoot = "";
 			targets = (
 				95F4435A18AB4AEF0088FC13 /* UzysAssetsPickerController */,
-				95F4437B18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -301,14 +255,6 @@
 				953E13B719A2CAE30012B4D9 /* UzysAssetPickerController.bundle in Resources */,
 				95F4439818AB4BBA0088FC13 /* UzysAssetsPickerController.xib in Resources */,
 				95080AE419CC508900E69F29 /* Launch Screen.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95F4437A18AB4AEF0088FC13 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95F4438818AB4AEF0088FC13 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,23 +278,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95F4437818AB4AEF0088FC13 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95F4438A18AB4AEF0088FC13 /* UzysAssetsPickerControllerTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		95F4438218AB4AEF0088FC13 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 95F4435A18AB4AEF0088FC13 /* UzysAssetsPickerController */;
-			targetProxy = 95F4438118AB4AEF0088FC13 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		95F4436718AB4AEF0088FC13 /* InfoPlist.strings */ = {
@@ -461,6 +391,7 @@
 				INFOPLIST_FILE = "UzysAssetsPickerController/UzysAssetsPickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "875d6078-c6b7-43ca-aac3-82c58d8c0765";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -476,47 +407,8 @@
 				INFOPLIST_FILE = "UzysAssetsPickerController/UzysAssetsPickerController-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "875d6078-c6b7-43ca-aac3-82c58d8c0765";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		95F4439118AB4AEF0088FC13 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UzysAssetsPickerController.app/UzysAssetsPickerController";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UzysAssetsPickerController/UzysAssetsPickerController-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "UzysAssetsPickerControllerTests/UzysAssetsPickerControllerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		95F4439218AB4AEF0088FC13 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UzysAssetsPickerController.app/UzysAssetsPickerController";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UzysAssetsPickerController/UzysAssetsPickerController-Prefix.pch";
-				INFOPLIST_FILE = "UzysAssetsPickerControllerTests/UzysAssetsPickerControllerTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -537,15 +429,6 @@
 			buildConfigurations = (
 				95F4438E18AB4AEF0088FC13 /* Debug */,
 				95F4438F18AB4AEF0088FC13 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		95F4439018AB4AEF0088FC13 /* Build configuration list for PBXNativeTarget "UzysAssetsPickerControllerTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				95F4439118AB4AEF0088FC13 /* Debug */,
-				95F4439218AB4AEF0088FC13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

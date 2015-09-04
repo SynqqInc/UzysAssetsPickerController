@@ -111,14 +111,14 @@
     self.btnClose.tintColor = [UIColor whiteColor];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
-        [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
-    }
-    [self.orderedSelectedItem removeAllObjects];
-    [self setAssetsCountWithSelectedIndexPaths:self.collectionView.indexPathsForSelectedItems];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    for (NSIndexPath *indexPath in [self.collectionView indexPathsForSelectedItems]) {
+//        [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+//    }
+//    [self.orderedSelectedItem removeAllObjects];
+//    [self setAssetsCountWithSelectedIndexPaths:self.collectionView.indexPathsForSelectedItems];
+//}
 
 - (void)initVariable
 {
@@ -401,7 +401,9 @@
         __strong typeof(weakSelf) strongSelf = weakSelf;
         if (asset)
         {
-            [strongSelf.assets addObject:asset];
+            @synchronized(strongSelf) {
+                [strongSelf.assets addObject:asset];
+            }
             
             NSString *type = [asset valueForProperty:ALAssetPropertyType];
             

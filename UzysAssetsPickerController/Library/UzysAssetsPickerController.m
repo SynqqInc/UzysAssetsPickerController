@@ -1047,82 +1047,80 @@
 #pragma mark - UIImagerPickerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    __weak typeof(self) weakSelf = self;
-    //사진 촬영 시
-    if (CFStringCompare((CFStringRef) [info objectForKey:UIImagePickerControllerMediaType], kUTTypeImage, 0) == kCFCompareEqualTo)
-    {
-        if(self.segmentedControl.selectedSegmentIndex ==1 && self.segmentedControl.hidden == NO)
+    [picker dismissViewControllerAnimated:YES completion:^{
+        __weak typeof(self) weakSelf = self;
+        //사진 촬영 시
+        if (CFStringCompare((CFStringRef) [info objectForKey:UIImagePickerControllerMediaType], kUTTypeImage, 0) == kCFCompareEqualTo)
         {
-            self.segmentedControl.selectedSegmentIndex = 0;
-            [self changeAssetType:YES endBlock:^{
-                __strong typeof(weakSelf) strongSelf = weakSelf;
+            if(self.segmentedControl.selectedSegmentIndex ==1 && self.segmentedControl.hidden == NO)
+            {
+                self.segmentedControl.selectedSegmentIndex = 0;
+                [self changeAssetType:YES endBlock:^{
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    UIImage *image = info[UIImagePickerControllerOriginalImage];
+                    [[NSNotificationCenter defaultCenter] removeObserver:strongSelf name:ALAssetsLibraryChangedNotification object:nil];
+                    
+                    NSMutableDictionary *metaData = [NSMutableDictionary dictionaryWithDictionary:info[UIImagePickerControllerMediaMetadata]];
+                    [self addGPSLocation:metaData];
+                    
+                    [strongSelf.assetsLibrary writeImageToSavedPhotosAlbum:image.CGImage metadata:metaData completionBlock:^(NSURL *assetURL, NSError *error) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self saveAssetsAction:assetURL error:error isPhoto:YES];
+                        });
+                        DLog(@"writeImageToSavedPhotosAlbum");
+                    }];
+                    
+                }];
+                
+            }
+            else
+            {
                 UIImage *image = info[UIImagePickerControllerOriginalImage];
-                [[NSNotificationCenter defaultCenter] removeObserver:strongSelf name:ALAssetsLibraryChangedNotification object:nil];
+                [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
                 
                 NSMutableDictionary *metaData = [NSMutableDictionary dictionaryWithDictionary:info[UIImagePickerControllerMediaMetadata]];
                 [self addGPSLocation:metaData];
                 
-                [strongSelf.assetsLibrary writeImageToSavedPhotosAlbum:image.CGImage metadata:metaData completionBlock:^(NSURL *assetURL, NSError *error) {
+                [self.assetsLibrary writeImageToSavedPhotosAlbum:image.CGImage metadata:metaData completionBlock:^(NSURL *assetURL, NSError *error) {
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        [self saveAssetsAction:assetURL error:error isPhoto:YES];
+                        [strongSelf saveAssetsAction:assetURL error:error isPhoto:YES];
                     });
                     DLog(@"writeImageToSavedPhotosAlbum");
                 }];
-                
-            }];
-            
+            }
         }
-        else
+        else //비디오 촬영시
         {
-            UIImage *image = info[UIImagePickerControllerOriginalImage];
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
-            
-            NSMutableDictionary *metaData = [NSMutableDictionary dictionaryWithDictionary:info[UIImagePickerControllerMediaMetadata]];
-            [self addGPSLocation:metaData];
-            
-            [self.assetsLibrary writeImageToSavedPhotosAlbum:image.CGImage metadata:metaData completionBlock:^(NSURL *assetURL, NSError *error) {
-                __strong typeof(weakSelf) strongSelf = weakSelf;
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [strongSelf saveAssetsAction:assetURL error:error isPhoto:YES];
-                });
-                DLog(@"writeImageToSavedPhotosAlbum");
-            }];
-        }
-    }
-    else //비디오 촬영시
-    {
-        if(self.segmentedControl.selectedSegmentIndex ==0 && self.segmentedControl.hidden == NO)
-        {
-            self.segmentedControl.selectedSegmentIndex = 1;
-            [self changeAssetType:NO endBlock:^{
-                __strong typeof(weakSelf) strongSelf = weakSelf;
-                
-                [[NSNotificationCenter defaultCenter] removeObserver:strongSelf name:ALAssetsLibraryChangedNotification object:nil];
-                [strongSelf.assetsLibrary writeVideoAtPathToSavedPhotosAlbum:info[UIImagePickerControllerMediaURL] completionBlock:^(NSURL *assetURL, NSError *error) {
-                    DLog(@"assetURL %@",assetURL);
+            if(self.segmentedControl.selectedSegmentIndex ==0 && self.segmentedControl.hidden == NO)
+            {
+                self.segmentedControl.selectedSegmentIndex = 1;
+                [self changeAssetType:NO endBlock:^{
+                    __strong typeof(weakSelf) strongSelf = weakSelf;
+                    
+                    [[NSNotificationCenter defaultCenter] removeObserver:strongSelf name:ALAssetsLibraryChangedNotification object:nil];
+                    [strongSelf.assetsLibrary writeVideoAtPathToSavedPhotosAlbum:info[UIImagePickerControllerMediaURL] completionBlock:^(NSURL *assetURL, NSError *error) {
+                        DLog(@"assetURL %@",assetURL);
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            [self saveAssetsAction:assetURL error:error isPhoto:NO];
+                        });
+                    }];
+                    
+                }];
+            }
+            else
+            {
+                [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
+                [self.assetsLibrary writeVideoAtPathToSavedPhotosAlbum:info[UIImagePickerControllerMediaURL] completionBlock:^(NSURL *assetURL, NSError *error) {
                     dispatch_async(dispatch_get_main_queue(), ^{
                         [self saveAssetsAction:assetURL error:error isPhoto:NO];
                     });
-                }];
-                
-            }];
+                    
+                }]; 
+            }
         }
-        else
-        {
-            [[NSNotificationCenter defaultCenter] removeObserver:self name:ALAssetsLibraryChangedNotification object:nil];
-            [self.assetsLibrary writeVideoAtPathToSavedPhotosAlbum:info[UIImagePickerControllerMediaURL] completionBlock:^(NSURL *assetURL, NSError *error) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self saveAssetsAction:assetURL error:error isPhoto:NO];
-                });
-                
-            }];
-            
-        }
-    }
     
-    [picker dismissViewControllerAnimated:YES completion:^{}];
-    
-    
+    }];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {

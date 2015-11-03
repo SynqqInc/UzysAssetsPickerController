@@ -247,10 +247,10 @@
     layout.minimumInteritemSpacing      = 1.0;
     layout.minimumLineSpacing           = appearanceConfig.cellSpacing;
   
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height - 64 -48) collectionViewLayout:layout];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectNull collectionViewLayout:layout];
+    
     self.collectionView.allowsMultipleSelection = YES;
-    [self.collectionView registerClass:[UzysAssetsViewCell class]
-            forCellWithReuseIdentifier:kAssetsViewCellIdentifier];
+    [self.collectionView registerClass:[UzysAssetsViewCell class] forCellWithReuseIdentifier:kAssetsViewCellIdentifier];
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -260,6 +260,40 @@
     self.collectionView.scrollsToTop = YES;
 
     [self.view insertSubview:self.collectionView atIndex:0];
+    
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView
+                                                          attribute:NSLayoutAttributeRight
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeRight
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView
+                                                          attribute:NSLayoutAttributeLeft
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeLeft
+                                                         multiplier:1.0
+                                                           constant:0.0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView
+                                                          attribute:NSLayoutAttributeTop
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeTop
+                                                         multiplier:1.0
+                                                           constant:64.0]];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView
+                                                          attribute:NSLayoutAttributeBottom
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view
+                                                          attribute:NSLayoutAttributeBottom
+                                                         multiplier:1.0
+                                                           constant:0.0]];
 }
 #pragma mark - Property
 - (void)setAssetsFilter:(ALAssetsFilter *)assetsFilter type:(NSInteger)type

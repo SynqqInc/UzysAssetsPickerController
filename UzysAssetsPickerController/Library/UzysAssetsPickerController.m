@@ -924,7 +924,7 @@
 - (void)setTitle:(NSString *)title
 {
     [super setTitle:title];
-    [self.btnTitle setTitle:title forState:UIControlStateNormal];
+    [self.btnTitle setTitle:[title uppercaseString] forState:UIControlStateNormal];
     [self.btnTitle setImageEdgeInsets:UIEdgeInsetsMake(5, 0, 0, 0)];
     [self.btnTitle setTitleEdgeInsets:UIEdgeInsetsMake(5, 0, 0, 0)];
     [self.btnTitle layoutIfNeeded];

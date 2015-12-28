@@ -464,7 +464,14 @@
 {
     [self.collectionView reloadData];
 
+    if ([self numberOfSectionsInCollectionView:self.collectionView] == 0) {
+        return;
+    }
+    
     NSInteger section = [self numberOfSectionsInCollectionView:self.collectionView] - 1;
+    if ([self collectionView:self.collectionView numberOfItemsInSection:section] == 0) {
+        return;
+    }
     NSInteger item = [self collectionView:self.collectionView numberOfItemsInSection:section] - 1;
     NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:item inSection:section];
     [self.collectionView scrollToItemAtIndexPath:lastIndexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:NO];

@@ -290,8 +290,8 @@
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.collectionView
                                                           attribute:NSLayoutAttributeBottom
                                                           relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view
-                                                          attribute:NSLayoutAttributeBottom
+                                                             toItem:self.bottomView
+                                                          attribute:NSLayoutAttributeTop
                                                          multiplier:1.0
                                                            constant:0.0]];
 }
